@@ -4,7 +4,6 @@ import { useState } from 'react'  /* estado de variable, info q almacena por ej 
 /*1 - Para seleccionar la moneda, que deberá tener la opción que sea en Pesos
 Argentinos y Dólares Estadounidenses.
 
-
 mostrar:
 - Cotización del día
 - Precio más alto del día
@@ -17,7 +16,7 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
 
     const [ error, guardarError] = useState (false)
    
-    const {moneda} = busqueda
+    const { criptomoneda, moneda} = busqueda
     
     // funcion que coloca los elementos en el state
     const handleChange = (e) => {
@@ -32,7 +31,7 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
     const handleSubmit = e =>{
         e.preventDefault() //previene el render, es conveniente ponerlo siempre en formularios
 
-        if(moneda.trim() === '' ) {
+        if(moneda.trim() === '' || criptomoneda.trim() === '') {
             guardarError(true)
             return
         }
@@ -42,6 +41,9 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
 
         // pasarlo al componente principal
         console.log('Enviando formulario')
+        console.log (moneda)
+        console.log (busqueda)
+        
         }
         
         
@@ -49,9 +51,7 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
     
 
     return (
-        <div className="w-2/5 lg:w-2/5 mx-auto ">
-            <h2 className="font-black text-3xl text-center">Cotizador de criptomonedas</h2>    
-
+        <div className="w-2/5 lg:w-2/5 m-auto ">   
             <p className="text-lg mt-5 text-center">
                 Seleccione el tipo de moneda y {" "}
                 <span className="text-yellow-400 font-bold">Cotizalas</span>
@@ -62,7 +62,7 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
                 className="bg-white shadow-md text-left ">
                 
                 {error? 
-                <p className="text-red-600 font-bold">(*) Debe seleccionar un tipo de moneda</p>
+                <p className="text-red-600 font-bold">(*) Debe completar todos los campos</p>
                 : null
                 }  
                        
@@ -78,8 +78,41 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
                     onChange = {handleChange}
                     >
                         <option value = ''>Seleccionar... </option>
-                        <option value = 'dolar'>Dólares Estadounidenses</option>
-                        <option value = 'peso'>Pesos Argentinos </option>
+                        <option value = 'USD'>Dólares Estadounidenses</option>
+                        <option value = 'ARS'>Pesos Argentinos </option>
+                    </select>
+
+                    <label htmlFor="Criptomoneda">Seleccione una criptomoneda (*)</label> {/*MANERA DE DAR ACCESIBILIDAD*/}
+                    <select  
+                    id = "criptomoneda" 
+                    className="border-2 w-full p-2 mt-2 placeholder-grey-400 rounded-md" 
+                    name = "criptomoneda"
+                    value = {criptomoneda}
+                    onChange = {handleChange}
+               
+                    >
+                        <option value = ''>Seleccionar... </option>
+                        <option value = 'BTC'>Bitcoin</option>
+                        <option value = 'THE'>Thether </option>
+                        <option value = 'ETH'>Etherotum </option>
+                        <option value = 'DOGE'>Dogecoin </option>
+                        <option value = 'CAR'>Cardano  </option>
+                        <option value = 'LTC'>Litecoin  </option>
+                        <option value = 'BNB'>Binance Coin </option>
+                        <option value = 'DOT'>Polkadot  </option>
+                        <option value = 'XRP'>Ripple  </option>
+                        <option value = 'BIT'>BitBay </option>
+                        <option value = 'EOS'>Eos  </option>
+                        <option value = 'BCH'>Bitcoin cash </option>
+                        <option value = 'LINK'>Chainlink  </option>
+                        <option value = 'AIDOC'>Aidoc</option>
+                        <option value = 'XMR'>Monero </option>
+                        <option value = 'NEO'>NEO </option>
+                        <option value = 'IOTA'>Uniswap </option>
+                        <option value = 'XLM'>Lumens </option>
+                        <option value = 'ANT'>Aragon</option>
+                        <option value = 'ARAW'> Araw</option>
+
                     </select>
                 </div>
 
@@ -88,6 +121,8 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
                     value = "Cotizar"
                     className="bg-yellow-400 w-full p-3 text-white uppercase font-bold hover:bg-yellow-400 cursor-pointer transitions-color"
                 />
+
+
             </form>
         </div>
     );
