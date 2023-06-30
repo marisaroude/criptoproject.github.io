@@ -15,7 +15,7 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
     //x cada uno de los input se necesita un usestate
 
     const [ error, guardarError] = useState (false)
-   
+    
     const { criptomoneda, moneda} = busqueda
     
     // funcion que coloca los elementos en el state
@@ -43,6 +43,7 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
         console.log('Enviando formulario')
         console.log (moneda)
         console.log (busqueda)
+
         
         }
         
@@ -51,8 +52,8 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
     
 
     return (
-        <div className="w-2/5 lg:w-2/5 m-auto ">   
-            <p className="text-lg mt-5 text-center">
+        <div className="w-4/5 lg:w-2/4 m-auto ">   
+            <p className="text-lg mt-5 mb-10 text-center">
                 Seleccione el tipo de moneda y {" "}
                 <span className="text-yellow-400 font-bold">Cotizalas</span>
             </p>
@@ -72,7 +73,7 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
                     <label htmlFor="Moneda">Tipo de moneda (*)</label> {/*MANERA DE DAR ACCESIBILIDAD*/}
                     <select  
                     id = "moneda" 
-                    className="border-2 w-full p-2 mt-2 placeholder-grey-400 rounded-md" 
+                    className=" border-2 w-full p-2 mt-2 placeholder-grey-400 rounded-md  " 
                     name = "moneda"
                     value = {moneda}
                     onChange = {handleChange}

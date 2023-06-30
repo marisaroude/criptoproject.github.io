@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Cotizacion } from './components/Cotizacion'
 import Formulario from './components/Formulario'
 import image from './assets/logo-crypto.png'
+import './App.css'
 
 function App() {
   const [ busqueda, guardarBusqueda ] = useState ({
@@ -12,6 +13,19 @@ function App() {
   const [resultado, guardarResultado] = useState({})
 
   const {criptomoneda , moneda} = busqueda
+
+  const resetForm = () => {
+    guardarBusqueda({
+      criptomoneda: '',
+      moneda: '',
+    })
+    guardarResultado({
+      resultado:''
+    });
+    guardarConsulta({
+      consultar:''
+    })
+  };
 
   useEffect(() => {
     const consultarApi = async () =>{
@@ -31,23 +45,26 @@ function App() {
 
     return (
       <>
+      
 
-      <div className="container  mt-20 flex:wrap m-auto"> {/* mt: margin top */}
-      <h2 className="font-black text-center text-5xl">Cotizador de criptomonedas</h2>
-
-        <div className='mt-12 md:flex'>
-  
-          <Formulario
-            busqueda={busqueda}
-            guardarBusqueda={guardarBusqueda}
-            guardarConsulta={guardarConsulta}
-          /> 
-          <Cotizacion
-          resultado={resultado}
-          />
-          
-          
-      </div>
+      <div className="bg-white py-10 px-10 rounded-xl flex:wrap "> {/* mt: margin top */}
+      
+        <h2 className="font-black text-center text-4xl">Cotizador de criptomonedas</h2>
+        <div class= "mt-10 w-10 lg:w-20 m-auto " >
+          <img class ="image-logo-bitcoin rounded-xl" src={image} />
+        </div>
+        
+        <div className='md:flex  m-auto'>
+            <Formulario
+              busqueda={busqueda}
+              guardarBusqueda={guardarBusqueda}
+              guardarConsulta={guardarConsulta}
+            /> 
+            <Cotizacion
+            resultado={resultado}
+            onReset={resetForm}
+            />
+          </div>
       </div>
       </>
     )
