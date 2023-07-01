@@ -49,8 +49,8 @@ function App() {
 
       <div className="bg-white py-10 px-10 rounded-xl flex:wrap "> {/* mt: margin top */}
       
-        <h2 className="font-black text-center text-4xl">Cotizador de criptomonedas</h2>
-        <div class= "mt-10 w-10 lg:w-20 m-auto " >
+        <h2 className="font-black text-center lg:text-4xl  md:text-2xl  ">Cotizador de criptomonedas</h2>
+        <div class= "mt-10 w-10  lg:w-20 m-auto mb-10" >
           <img class ="image-logo-bitcoin rounded-xl" src={image} />
         </div>
         

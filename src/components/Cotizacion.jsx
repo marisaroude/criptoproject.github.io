@@ -7,10 +7,10 @@ export const Cotizacion = ({resultado, onReset}) => {
   if (Object.keys(resultado).length === 0) return null
 
   return (
-    <div className="w-4/5 lg:w-3/5 m-auto ">
-      <div className=' mx-5 my-10  bg-yellow-300 shadow-xl px-10 py-5 rounded-xl '>
-           <h2 className=' font-bold text-2xl mt-5 mb-10 text-left'>Cotización:</h2>
-               <div className=" flex flex-wrap">
+    <div className="w-4/5 lg:w-2/4 m-auto w-full">
+      <div className='text-left bg-yellow-300 shadow-xl lg:ml-5 md:ml-5 px-5 py-10 rounded-xl'>
+           <h2 className='font-black text-left md:text-2xl  sm:text-sm mb-5'>Cotización:</h2>
+               <div className="flex flex-wrap">
                   <h2 className='font-bold mb-2 ' >Cotización del día:</h2>
                   <p className="ml-2 font-bold text-gray-700  ">{resultado.PRICE}</p>
                </div>
@@ -29,7 +29,7 @@ export const Cotizacion = ({resultado, onReset}) => {
                     
       </div>
       {Object.keys(resultado).length !== 0 && (
-        <button className="text-yellow-400 font-bold" onClick={onReset}>
+        <button className="text-yellow-400 font-bold mt-5" onClick={onReset}>
           Nueva cotización
         </button>
       )}

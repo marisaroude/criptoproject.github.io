@@ -39,10 +39,6 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
         guardarError(false)
         guardarConsulta(true)
 
-        // pasarlo al componente principal
-        console.log('Enviando formulario')
-        console.log (moneda)
-        console.log (busqueda)
 
         
         }
@@ -52,7 +48,7 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
     
 
     return (
-        <div className="w-4/5 lg:w-2/4 m-auto ">   
+        <div className="w-4/5 lg:w-2/4 m-auto px-0 pb-5 w-full">   
             <p className="text-lg mt-5 mb-10 text-center">
                 Seleccione el tipo de moneda y {" "}
                 <span className="text-yellow-400 font-bold">Cotizalas</span>
@@ -120,7 +116,7 @@ const Formulario = ({ busqueda, guardarBusqueda, guardarConsulta}) => {
                 <input
                     type="submit"
                     value = "Cotizar"
-                    className="bg-yellow-400 w-full p-3 text-white uppercase font-bold hover:bg-yellow-400 cursor-pointer transitions-color"
+                    className="bg-yellow-400 w-full p-3 text-white rounded-md uppercase font-bold hover:bg-yellow-400 cursor-pointer transitions-color"
                 />
 
 
